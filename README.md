@@ -14,7 +14,8 @@ with Angular**, week 9 of the LEAP graduate programme.
   zero, before Angular is introduced at all
 - A working checkout of Sprint 6/7's mission service (Spring Boot) and Sprint 8's
   `sprint8-auth-service` (NestJS) — Modules 4, 5, 11, and 12 make real calls against both
-- Docker, and the same `sprint6-postgres` container used in Sprint 8, Module 15
+- A local Postgres with the `mission` database (the Sprint 3 enterprise schema, reused since
+  Sprint 8) — running natively, no Docker. Default `localhost:5432`; adjust if yours differs
 - GitHub Copilot Chat (continuing as a learning aid)
 
 ## Coming from Sprint 8

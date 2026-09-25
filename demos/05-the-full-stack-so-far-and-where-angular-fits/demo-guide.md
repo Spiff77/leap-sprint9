@@ -1,7 +1,7 @@
 # Module 5 Demo Guide — The Full Stack So Far & Where Angular Fits
 
 **Duration:** 10 minutes
-**Prerequisite:** `sprint6-postgres` running with the Sprint 3 schema, Sprint 6/7's mission
+**Prerequisite:** a local Postgres running with the Sprint 3 schema (no Docker), Sprint 6/7's mission
 service, and Sprint 8's `sprint8-auth-service`. Modules 1-4 (HTML, CSS, DOM, Fetch)
 complete — this module assumes their static page and its `fetch()` call to
 `sprint8-auth-service` already exist.
@@ -58,7 +58,7 @@ Verified real output:
 
 ```bash
 # Not just trusting the HTTP response
-docker exec sprint6-postgres psql -U postgres -d mission -c \
+PGPASSWORD=mission psql -h localhost -p 5432 -U postgres -d mission -c \
   "SELECT h.account_id, i.ticker, h.quantity FROM holdings h JOIN instruments i ON h.instrument_id=i.instrument_id WHERE h.account_id=1 AND i.ticker='ULVR.L';"
 ```
 

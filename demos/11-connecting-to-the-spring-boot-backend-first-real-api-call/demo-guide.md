@@ -2,7 +2,7 @@
 
 **Duration:** 25 minutes
 **Prerequisite:** Module 9's DI pattern, Module 10's HttpClient/catchError pattern. A working
-checkout of Sprint 6/7's mission service, `sprint6-postgres` running, and Sprint 8's
+checkout of Sprint 6/7's mission service, a local Postgres running (no Docker), and Sprint 8's
 `sprint8-auth-service` — the same three pieces Module 5's whiteboard exercise already traced
 by hand.
 

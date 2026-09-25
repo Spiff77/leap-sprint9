@@ -3,7 +3,7 @@
 ## Verified Output
 
 Run for real against the actual Sprint 6 mission service (CORS-enabled, port 8090 in this
-setup), Sprint 8 auth service (CORS-enabled, port 3000), and `sprint6-postgres`:
+setup), Sprint 8 auth service (CORS-enabled, port 3000), and a local Postgres:
 
 - Before clicking: `ULVR.L` holding quantity `503.0000` (queried via `psql`).
 - After clicking "Submit Test Order" (BUY 1 ULVR.L @ 40.0): browser showed

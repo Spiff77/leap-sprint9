@@ -3,7 +3,7 @@
 ## Setup
 
 Your own `mission-ui` from Module 11, plus the same running mission service, auth service,
-and `sprint6-postgres`. Add `springdoc-openapi-starter-webmvc-ui` (version `2.6.0`) to the
+and a local Postgres (no Docker). Add `springdoc-openapi-starter-webmvc-ui` (version `2.6.0`) to the
 mission service's `pom.xml` if it isn't there yet, and confirm you can fetch a real spec:
 
 ```bash

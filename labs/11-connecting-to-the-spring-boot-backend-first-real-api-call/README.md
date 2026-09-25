@@ -2,11 +2,14 @@
 
 ## Setup
 
-1. `sprint6-postgres` running (the same container used since Sprint 3/Sprint 8).
-2. Sprint 6/7's mission service, running with CORS enabled for `http://localhost:4200` (add
+1. A local Postgres running with the `mission` database (the same data used since Sprint
+   3/Sprint 8), reachable at `localhost:5432` — no Docker.
+2. Sprint 6/7's mission service, running locally (`mvn spring-boot:run`, port 8090) with CORS
+   enabled for `http://localhost:4200` (add
    the `CorsConfigurationSource` bean from today's demo to `SecurityConfig.java` if your copy
    doesn't have it yet).
-3. Sprint 8's `sprint8-auth-service`, running with CORS enabled for `http://localhost:4200`
+3. Sprint 8's `sprint8-auth-service`, running locally (`npm start`, port 3000) with CORS
+   enabled for `http://localhost:4200`
    (Module 4's own fix — `app.enableCors({ origin: "http://localhost:4200" })` in `main.ts`).
 4. Your `mission-ui` from Module 10, served on port 4200 specifically (`ng serve` defaults to
    this — don't override it with `--port` this time, since both backend services are
@@ -45,7 +48,7 @@ Module 5's whiteboard traced.
 1. Query Postgres directly for your test account's holding, **before** clicking anything:
 
    ```bash
-   docker exec -e PGPASSWORD=mission sprint6-postgres psql -U postgres -d mission -c \
+   PGPASSWORD=mission psql -h localhost -p 5432 -U postgres -d mission -c \
      "SELECT h.account_id, i.ticker, h.quantity FROM holdings h JOIN instruments i ON h.instrument_id=i.instrument_id WHERE h.account_id=1 AND i.ticker='ULVR.L';"
    ```
 

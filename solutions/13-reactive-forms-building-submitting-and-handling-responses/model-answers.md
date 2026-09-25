@@ -3,7 +3,7 @@
 ## Verified Output
 
 Built and run for real against the actual mission service, auth service, and
-`sprint6-postgres`:
+a local Postgres:
 
 - Blanking the quantity field and moving focus away: `field-error` "Quantity must be greater
   than 0." appeared without any submission happening.

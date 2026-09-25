@@ -3,7 +3,7 @@
 ## Setup
 
 Your own `mission-ui` from Module 14. Same running backends as Modules 11-14 (mission
-service, auth service, `sprint6-postgres`).
+service, auth service, a local Postgres).
 
 ## Task
 

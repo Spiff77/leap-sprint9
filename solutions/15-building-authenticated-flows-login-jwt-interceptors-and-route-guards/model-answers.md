@@ -3,7 +3,7 @@
 ## Verified Output
 
 Built and run for real against the actual mission service, auth service, and
-`sprint6-postgres`:
+a local Postgres:
 
 - Visiting `/holdings` with no prior login redirected to `/login` — the guard blocked the
   route before its component ever loaded.

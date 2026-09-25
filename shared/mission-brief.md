@@ -1,7 +1,7 @@
 # Sprint 9 Mission: Giving the Trading Platform a Face
 
 Since Sprint 6, the mission service (Spring Boot) has been fully real — persisted, secured,
-containerised — but only reachable by `curl`, a REST client, or Sprint 6's own integration
+a separate backend service — reachable only by `curl`, a REST client, or Sprint 6's own integration
 test script. Sprint 8 gave it a real identity provider. Nobody has actually *seen* it work
 as an application yet.
 

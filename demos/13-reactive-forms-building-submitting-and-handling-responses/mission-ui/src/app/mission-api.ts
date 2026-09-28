@@ -1,5 +1,5 @@
 import { Injectable, inject, signal } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { catchError, switchMap, of } from 'rxjs';
 import { OrderControllerService, OrderRequestDto, OrderResponseDto } from './generated/mission-api-client';
 
@@ -34,13 +34,8 @@ export class MissionApi {
           };
           return this.orderApi.submitOrder(ACCOUNT_ID, order);
         }),
-        catchError((error: HttpErrorResponse) => {
-          // The mission service's GlobalExceptionHandler always returns a
-          // real ErrorResponse body ({ status, error, message, path }) -
-          // error.message here is just Angular's generic "Http failure
-          // response for ..." wrapper, not what the SERVER actually said.
-          const serverMessage = error.error?.message;
-          this.error.set(`Order failed: ${serverMessage ?? error.message}`);
+        catchError((error) => {
+          this.error.set(`Order failed: ${error.message}`);
           return of(null);
         }),
       )

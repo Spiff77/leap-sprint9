@@ -1,6 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, signal, computed } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { Holdings } from '../holdings';
+
+interface Holding {
+  ticker: string;
+  quantity: number;
+  price: number;
+}
 
 @Component({
   selector: 'app-holdings-summary',
@@ -9,16 +14,23 @@ import { Holdings } from '../holdings';
   styleUrl: './holdings-summary.css',
 })
 export class HoldingsSummary {
-  private readonly holdingsService = inject(Holdings);
+  protected readonly holdings = signal<Holding[]>([
+    { ticker: 'ULVR.L', quantity: 500, price: 42.1 },
+    { ticker: 'AZN.L', quantity: 120, price: 108.5 },
+  ]);
 
-  protected readonly holdings = this.holdingsService.all;
-  protected readonly totalValue = this.holdingsService.totalValue;
+  protected readonly totalValue = computed(() =>
+    this.holdings().reduce((sum, h) => sum + h.quantity * h.price, 0),
+  );
 
   protected addHolding(): void {
-    this.holdingsService.add({ ticker: 'BP.L', quantity: 200, price: 4.8 });
+    this.holdings.update((current) => [
+      ...current,
+      { ticker: 'BP.L', quantity: 200, price: 4.8 },
+    ]);
   }
 
   protected removeHolding(ticker: string): void {
-    this.holdingsService.remove(ticker);
+    this.holdings.update((current) => current.filter((h) => h.ticker !== ticker));
   }
 }
